@@ -1,0 +1,17 @@
+{{template "header.html" .}}
+{{template "flash.html".}}
+<form action="/Admin/AddUser" method="POST" class="text-left" width="60%">
+  <label for="email">Email address</label>
+  <input type="email" name="email" id="email" class="form-control" required autofocus/>
+  <br/>
+  <label for="psw">Password</label>
+  <input type="password" name="psw" id="psw" class="form-control" required/>
+  <br/>
+  <label for="role">Role</label>
+  <input type="text" name="role" id="role" class="form-control"/>
+  <br/>
+  <br/>
+  <button class="btn btn-lg btn-primary btn-block" type="submit">등록</button>
+</form>
+{{template "admin.html" .}}
+{{template "footer.html" .}}

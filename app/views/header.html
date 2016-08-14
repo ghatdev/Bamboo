@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>충남삼성고등학교 대나무숲<!--{{.title}}--></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="/public/css/bootstrap.min.css">
+    <link rel="shortcut icon" type="image/png" href="/public/img/favicon.png">
+    <script src="/public/js/jquery-3.1.0.min.js"></script>
+    <script src="/public/js/bootstrap.min.js"></script>
+    {{range .moreStyles}}
+      <link rel="stylesheet" type="text/css" href="/public/{{.}}">
+    {{end}}
+    {{range .moreScripts}}
+      <script src="/public/{{.}}" type="text/javascript" charset="utf-8"></script>
+    {{end}}
+  </head>
+  <body class="text-center">
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-header" style="float: none;">
+        <a class="navbar-brand text-center center-block" style="float: none;" href="/">충남삼성고등학교 대나무숲<!--{{.title}}--></a>
+      </div>
+    </div>
+    <div class="container body-content" style="margin-top: 60px">

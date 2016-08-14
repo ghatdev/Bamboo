@@ -1,0 +1,49 @@
+{{template "header.html" .}}
+{{if .contents}}
+{{range .contents}}
+<div class="panel panel-primary" style="margin-top: 7px; margin-bottom: 7px;">
+  <div class="panel-title">
+  </div>
+  <div class="panel-body">
+    <p class="col-md-8 text-left" style="width:70%">{{.Message}}</p>
+    <table border="0" class="text-right" style="width: 30%;">
+      <tr>
+        <td><button type="button" class="btn btn-default" data-toggle="modal" data-target="#postModal">게시</button></td>
+      </tr>
+    </table>
+
+  </div>
+  <div class="panel-footer">
+    <table border="0" style="width: 100%;">
+      <tr>
+        <td><p class="text-left">{{.Snum}}</p></td>
+        <td><p class="text-center">{{.Ipaddr}}</p></td>
+        <td><p class="text-right">{{.Time}}</p></td>
+      </tr>
+    </table>
+  </div>
+</div>
+<form action="/Admin/Post" method="POST">
+  <input type="hidden" name="snum" value="{{.Snum}}"/>
+  <div class="modal fade" id="postModal" tabindex="-1" role="dialog" aria-labelledby="postModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title" id="postModalLabel">게시하기</h4>
+        </div>
+        <div class="modal-body">
+          <textarea name="content" rows="8" cols="40">{{.Message}}</textarea>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
+          <button type="submit" class="btn btn-primary">게시</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+{{end}}
+{{else}}
+{{end}}
+{{template "admin.html" .}}
+{{template "footer.html" .}}
