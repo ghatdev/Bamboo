@@ -85,7 +85,7 @@ func (c Admin) Post(content string, snum string) revel.Result {
 		return c.Redirect(Admin.Index)
 	}
 
-	err = collection.Update(bson.M{"snum": snum}, bson.M{"message": content, "time": result.Time, "posted": "true", "snum": snum})
+	err = collection.Update(bson.M{"snum": snum}, bson.M{"message": content, "time": result.Time, "posted": "true", "snum": snum, "ipaddr": result.Ipaddr})
 	if err != nil {
 		c.Flash.Error("올바르지 않은 접근입니다")
 		return c.Redirect(Admin.Index)

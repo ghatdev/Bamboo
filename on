@@ -1,288 +1,64 @@
-INFO  2016/08/15 03:11:05 Loaded module static
-INFO  2016/08/15 03:11:05 Initialized Revel v0.13.1 (2016-06-06) for >= go1.4
-INFO  2016/08/15 03:11:05 Running bamboo (bamboo) in prod mode
-TRACE 2016/08/15 03:11:05 Base path: C:\Go\Workspace\src\bamboo
-TRACE 2016/08/15 03:11:05 Running in live build mode.
-INFO  2016/08/15 03:11:05 Cleaning dir tmp
-INFO  2016/08/15 03:11:05 Cleaning dir routes
-INFO  2016/08/15 03:11:05 Cleaning dir tmp
-INFO  2016/08/15 03:11:05 Cleaning dir routes
-TRACE 2016/08/15 03:11:05 Exec: [C:\Go\bin\go.exe build -i -ldflags -X bamboo/app.APP_VERSION= -tags  -o C:\Go\Workspace\bin\revel.d\bamboo\bamboo.exe bamboo/app/tmp]
-TRACE 2016/08/15 03:11:07 Exec app: C:\Go\Workspace\bin\revel.d\bamboo\bamboo.exe [C:\Go\Workspace\bin\revel.d\bamboo\bamboo.exe -port=9000 -importPath=bamboo -runMode=prod]
-INFO  2016/08/15 03:11:07 Loaded module static
-INFO  2016/08/15 03:11:07 Initialized Revel v0.13.1 (2016-06-06) for >= go1.4
-INFO  2016/08/15 03:11:07 Running revel server
-TRACE 2016/08/15 03:11:07 Registered controller: Admin
-TRACE 2016/08/15 03:11:07 Registered controller: App
-TRACE 2016/08/15 03:11:07 Registered controller: Static
-TRACE 2016/08/15 03:11:07 Importing messages from module: github.com/revel/modules/static
-TRACE 2016/08/15 03:11:07 Successfully loaded messages from file sample.en
-INFO  2016/08/15 03:11:07 Skipping routes for inactive module testrunner
-TRACE 2016/08/15 03:11:07 Refreshing templates from [C:\Go\Workspace\src\bamboo\app\views C:\Go\Workspace\src\github.com\revel\revel/templates]
-TRACE 2016/08/15 03:11:07 adding template:  Admin\ChangePassword.html
-TRACE 2016/08/15 03:11:07 adding template:  Admin\Index.html
-TRACE 2016/08/15 03:11:07 adding template:  Admin\Login.html
-TRACE 2016/08/15 03:11:07 adding template:  Admin\Register.html
-TRACE 2016/08/15 03:11:07 adding template:  App\Index.html
-TRACE 2016/08/15 03:11:07 adding template:  admin.html
-TRACE 2016/08/15 03:11:07 adding template:  debug.html
-TRACE 2016/08/15 03:11:07 adding template:  errors\404.html
-TRACE 2016/08/15 03:11:07 adding template:  errors\500.html
-TRACE 2016/08/15 03:11:07 adding template:  flash.html
-TRACE 2016/08/15 03:11:07 adding template:  footer.html
-TRACE 2016/08/15 03:11:07 adding template:  header.html
-TRACE 2016/08/15 03:11:07 adding template:  errors\403.html
-TRACE 2016/08/15 03:11:07 adding template:  errors\403.json
-TRACE 2016/08/15 03:11:07 adding template:  errors\403.txt
-TRACE 2016/08/15 03:11:07 adding template:  errors\403.xml
-TRACE 2016/08/15 03:11:07 adding template:  errors\404-dev.html
-TRACE 2016/08/15 03:11:07 adding template:  errors\404.html
-TRACE 2016/08/15 03:11:07 adding template:  errors\404.json
-TRACE 2016/08/15 03:11:07 adding template:  errors\404.txt
-TRACE 2016/08/15 03:11:07 adding template:  errors\404.xml
-TRACE 2016/08/15 03:11:07 adding template:  errors\405.html
-TRACE 2016/08/15 03:11:07 adding template:  errors\405.json
-TRACE 2016/08/15 03:11:07 adding template:  errors\405.txt
-TRACE 2016/08/15 03:11:07 adding template:  errors\405.xml
-TRACE 2016/08/15 03:11:07 adding template:  errors\500-dev.html
-TRACE 2016/08/15 03:11:07 adding template:  errors\500.html
-TRACE 2016/08/15 03:11:07 adding template:  errors\500.json
-TRACE 2016/08/15 03:11:07 adding template:  errors\500.txt
-TRACE 2016/08/15 03:11:07 adding template:  errors\500.xml
-TRACE 2016/08/15 03:11:10 Unable to read locale cookie with name 'REVEL_LANG': http: named cookie not present
-TRACE 2016/08/15 03:11:10 Found Accept-Language header value: ko-KR
-TRACE 2016/08/15 03:11:10 Unable to read locale cookie with name 'REVEL_LANG': http: named cookie not present
-TRACE 2016/08/15 03:11:10 Found Accept-Language header value: ko-KR
-TRACE 2016/08/15 03:11:10 Unable to read locale cookie with name 'REVEL_LANG': http: named cookie not present
-TRACE 2016/08/15 03:11:10 Found Accept-Language header value: ko-KR
-TRACE 2016/08/15 03:11:10 Unable to read locale cookie with name 'REVEL_LANG': http: named cookie not present
-TRACE 2016/08/15 03:11:10 Found Accept-Language header value: ko-KR
-TRACE 2016/08/15 03:11:10 Unable to read locale cookie with name 'REVEL_LANG': http: named cookie not present
-TRACE 2016/08/15 03:11:10 Found Accept-Language header value: ko-KR
-TRACE 2016/08/15 03:11:14 Unable to read locale cookie with name 'REVEL_LANG': http: named cookie not present
-TRACE 2016/08/15 03:11:14 Found Accept-Language header value: ko-KR
-TRACE 2016/08/15 03:11:14 Unable to read locale cookie with name 'REVEL_LANG': http: named cookie not present
-TRACE 2016/08/15 03:11:14 Found Accept-Language header value: ko-KR
-INFO  2016/08/15 03:11:35 Loaded module static
-INFO  2016/08/15 03:11:35 Initialized Revel v0.13.1 (2016-06-06) for >= go1.4
-INFO  2016/08/15 03:11:35 Cleaning dir tmp
-INFO  2016/08/15 03:11:35 Cleaning dir routes
-INFO  2016/08/15 03:11:35 Cleaning dir tmp
-INFO  2016/08/15 03:11:35 Cleaning dir routes
-TRACE 2016/08/15 03:11:35 Exec: [C:\Go\bin\go.exe build -i -ldflags -X bamboo/app.APP_VERSION= -tags  -o C:\Go\Workspace\bin\revel.d\bamboo\bamboo.exe bamboo/app/tmp]
-INFO  2016/08/15 03:11:58 Loaded module static
-INFO  2016/08/15 03:11:58 Initialized Revel v0.13.1 (2016-06-06) for >= go1.4
-INFO  2016/08/15 03:11:58 Cleaning dir tmp
-INFO  2016/08/15 03:11:58 Cleaning dir routes
-INFO  2016/08/15 03:11:58 Cleaning dir tmp
-INFO  2016/08/15 03:11:58 Cleaning dir routes
-TRACE 2016/08/15 03:11:58 Exec: [C:\Go\bin\go.exe build -i -ldflags -X bamboo/app.APP_VERSION= -tags  -o C:\Go\Workspace\bin\revel.d\bamboo\bamboo.exe bamboo/app/tmp]
-INFO  2016/08/15 03:14:47 Loaded module static
-INFO  2016/08/15 03:14:47 Initialized Revel v0.13.1 (2016-06-06) for >= go1.4
-INFO  2016/08/15 03:14:47 Cleaning dir tmp
-INFO  2016/08/15 03:14:47 Cleaning dir routes
-INFO  2016/08/15 03:14:47 Cleaning dir tmp
-INFO  2016/08/15 03:14:47 Cleaning dir routes
-TRACE 2016/08/15 03:14:47 Exec: [C:\Go\bin\go.exe build -i -ldflags -X bamboo/app.APP_VERSION= -tags  -o C:\Go\Workspace\bin\revel.d\bamboo\bamboo.exe bamboo/app/tmp]
-INFO  2016/08/15 03:14:51 Loaded module static
-INFO  2016/08/15 03:14:51 Initialized Revel v0.13.1 (2016-06-06) for >= go1.4
-INFO  2016/08/15 03:14:51 Cleaning dir tmp
-INFO  2016/08/15 03:14:51 Cleaning dir routes
-INFO  2016/08/15 03:14:51 Cleaning dir tmp
-INFO  2016/08/15 03:14:51 Cleaning dir routes
-TRACE 2016/08/15 03:14:51 Exec: [C:\Go\bin\go.exe build -i -ldflags -X bamboo/app.APP_VERSION= -tags  -o C:\Go\Workspace\bin\revel.d\bamboo\bamboo.exe bamboo/app/tmp]
-INFO  2016/08/15 03:16:56 Loaded module static
-INFO  2016/08/15 03:16:56 Initialized Revel v0.13.1 (2016-06-06) for >= go1.4
-INFO  2016/08/15 03:16:56 Cleaning dir tmp
-INFO  2016/08/15 03:16:56 Cleaning dir routes
-INFO  2016/08/15 03:16:56 Cleaning dir tmp
-INFO  2016/08/15 03:16:56 Cleaning dir routes
-TRACE 2016/08/15 03:16:56 Exec: [C:\Go\bin\go.exe build -i -ldflags -X bamboo/app.APP_VERSION= -tags  -o C:\Go\Workspace\bin\revel.d\bamboo\bamboo.exe bamboo/app/tmp]
-INFO  2016/08/15 03:16:59 Loaded module static
-INFO  2016/08/15 03:16:59 Initialized Revel v0.13.1 (2016-06-06) for >= go1.4
-INFO  2016/08/15 03:16:59 Cleaning dir tmp
-INFO  2016/08/15 03:16:59 Cleaning dir routes
-INFO  2016/08/15 03:16:59 Cleaning dir tmp
-INFO  2016/08/15 03:16:59 Cleaning dir routes
-TRACE 2016/08/15 03:16:59 Exec: [C:\Go\bin\go.exe build -i -ldflags -X bamboo/app.APP_VERSION= -tags  -o C:\Go\Workspace\bin\revel.d\bamboo\bamboo.exe bamboo/app/tmp]
-INFO  2016/08/15 03:19:52 Loaded module static
-INFO  2016/08/15 03:19:52 Initialized Revel v0.13.1 (2016-06-06) for >= go1.4
-INFO  2016/08/15 03:19:52 Cleaning dir tmp
-INFO  2016/08/15 03:19:52 Cleaning dir routes
-INFO  2016/08/15 03:19:52 Cleaning dir tmp
-INFO  2016/08/15 03:19:52 Cleaning dir routes
-TRACE 2016/08/15 03:19:52 Exec: [C:\Go\bin\go.exe build -i -ldflags -X bamboo/app.APP_VERSION= -tags  -o C:\Go\Workspace\bin\revel.d\bamboo\bamboo.exe bamboo/app/tmp]
-INFO  2016/08/15 03:19:54 Loaded module static
-INFO  2016/08/15 03:19:54 Initialized Revel v0.13.1 (2016-06-06) for >= go1.4
-INFO  2016/08/15 03:19:54 Cleaning dir tmp
-INFO  2016/08/15 03:19:54 Cleaning dir routes
-INFO  2016/08/15 03:19:54 Cleaning dir tmp
-INFO  2016/08/15 03:19:54 Cleaning dir routes
-TRACE 2016/08/15 03:19:54 Exec: [C:\Go\bin\go.exe build -i -ldflags -X bamboo/app.APP_VERSION= -tags  -o C:\Go\Workspace\bin\revel.d\bamboo\bamboo.exe bamboo/app/tmp]
-INFO  2016/08/15 03:21:06 Loaded module static
-INFO  2016/08/15 03:21:06 Initialized Revel v0.13.1 (2016-06-06) for >= go1.4
-INFO  2016/08/15 03:21:06 Cleaning dir tmp
-INFO  2016/08/15 03:21:06 Cleaning dir routes
-INFO  2016/08/15 03:21:06 Cleaning dir tmp
-INFO  2016/08/15 03:21:06 Cleaning dir routes
-TRACE 2016/08/15 03:21:06 Exec: [C:\Go\bin\go.exe build -i -ldflags -X bamboo/app.APP_VERSION= -tags  -o C:\Go\Workspace\bin\revel.d\bamboo\bamboo.exe bamboo/app/tmp]
-INFO  2016/08/15 03:21:08 Loaded module static
-INFO  2016/08/15 03:21:08 Initialized Revel v0.13.1 (2016-06-06) for >= go1.4
-INFO  2016/08/15 03:21:08 Cleaning dir tmp
-INFO  2016/08/15 03:21:08 Cleaning dir routes
-INFO  2016/08/15 03:21:08 Cleaning dir tmp
-INFO  2016/08/15 03:21:08 Cleaning dir routes
-TRACE 2016/08/15 03:21:08 Exec: [C:\Go\bin\go.exe build -i -ldflags -X bamboo/app.APP_VERSION= -tags  -o C:\Go\Workspace\bin\revel.d\bamboo\bamboo.exe bamboo/app/tmp]
-INFO  2016/08/15 03:23:34 Loaded module static
-INFO  2016/08/15 03:23:34 Initialized Revel v0.13.1 (2016-06-06) for >= go1.4
-INFO  2016/08/15 03:23:34 Cleaning dir tmp
-INFO  2016/08/15 03:23:34 Cleaning dir routes
-INFO  2016/08/15 03:23:35 Cleaning dir tmp
-INFO  2016/08/15 03:23:35 Cleaning dir routes
-TRACE 2016/08/15 03:23:35 Exec: [C:\Go\bin\go.exe build -i -ldflags -X bamboo/app.APP_VERSION= -tags  -o C:\Go\Workspace\bin\revel.d\bamboo\bamboo.exe bamboo/app/tmp]
-INFO  2016/08/15 03:23:37 Loaded module static
-INFO  2016/08/15 03:23:37 Initialized Revel v0.13.1 (2016-06-06) for >= go1.4
-INFO  2016/08/15 03:23:37 Cleaning dir tmp
-INFO  2016/08/15 03:23:37 Cleaning dir routes
-INFO  2016/08/15 03:23:37 Cleaning dir tmp
-INFO  2016/08/15 03:23:37 Cleaning dir routes
-TRACE 2016/08/15 03:23:37 Exec: [C:\Go\bin\go.exe build -i -ldflags -X bamboo/app.APP_VERSION= -tags  -o C:\Go\Workspace\bin\revel.d\bamboo\bamboo.exe bamboo/app/tmp]
-INFO  2016/08/15 03:33:59 Loaded module static
-INFO  2016/08/15 03:33:59 Initialized Revel v0.13.1 (2016-06-06) for >= go1.4
-INFO  2016/08/15 03:34:00 Cleaning dir tmp
-INFO  2016/08/15 03:34:00 Cleaning dir routes
-INFO  2016/08/15 03:34:00 Cleaning dir tmp
-INFO  2016/08/15 03:34:00 Cleaning dir routes
-TRACE 2016/08/15 03:34:00 Exec: [C:\Go\bin\go.exe build -i -ldflags -X bamboo/app.APP_VERSION= -tags  -o C:\Go\Workspace\bin\revel.d\bamboo\bamboo.exe bamboo/app/tmp]
-INFO  2016/08/15 03:34:02 Loaded module static
-INFO  2016/08/15 03:34:02 Initialized Revel v0.13.1 (2016-06-06) for >= go1.4
-INFO  2016/08/15 03:34:02 Cleaning dir tmp
-INFO  2016/08/15 03:34:02 Cleaning dir routes
-INFO  2016/08/15 03:34:02 Cleaning dir tmp
-INFO  2016/08/15 03:34:02 Cleaning dir routes
-TRACE 2016/08/15 03:34:02 Exec: [C:\Go\bin\go.exe build -i -ldflags -X bamboo/app.APP_VERSION= -tags  -o C:\Go\Workspace\bin\revel.d\bamboo\bamboo.exe bamboo/app/tmp]
-INFO  2016/08/15 03:40:12 Loaded module static
-INFO  2016/08/15 03:40:12 Initialized Revel v0.13.1 (2016-06-06) for >= go1.4
-INFO  2016/08/15 03:40:12 Cleaning dir tmp
-INFO  2016/08/15 03:40:12 Cleaning dir routes
-INFO  2016/08/15 03:40:13 Cleaning dir tmp
-INFO  2016/08/15 03:40:13 Cleaning dir routes
-TRACE 2016/08/15 03:40:13 Exec: [C:\Go\bin\go.exe build -i -ldflags -X bamboo/app.APP_VERSION= -tags  -o C:\Go\Workspace\bin\revel.d\bamboo\bamboo.exe bamboo/app/tmp]
-INFO  2016/08/15 03:40:15 Loaded module static
-INFO  2016/08/15 03:40:15 Initialized Revel v0.13.1 (2016-06-06) for >= go1.4
-INFO  2016/08/15 03:40:15 Cleaning dir tmp
-INFO  2016/08/15 03:40:15 Cleaning dir routes
-INFO  2016/08/15 03:40:15 Cleaning dir tmp
-INFO  2016/08/15 03:40:15 Cleaning dir routes
-TRACE 2016/08/15 03:40:15 Exec: [C:\Go\bin\go.exe build -i -ldflags -X bamboo/app.APP_VERSION= -tags  -o C:\Go\Workspace\bin\revel.d\bamboo\bamboo.exe bamboo/app/tmp]
-INFO  2016/08/15 03:42:55 Loaded module static
-INFO  2016/08/15 03:42:55 Initialized Revel v0.13.1 (2016-06-06) for >= go1.4
-INFO  2016/08/15 03:42:55 Cleaning dir tmp
-INFO  2016/08/15 03:42:55 Cleaning dir routes
-INFO  2016/08/15 03:42:55 Cleaning dir tmp
-INFO  2016/08/15 03:42:55 Cleaning dir routes
-TRACE 2016/08/15 03:42:55 Exec: [C:\Go\bin\go.exe build -i -ldflags -X bamboo/app.APP_VERSION= -tags  -o C:\Go\Workspace\bin\revel.d\bamboo\bamboo.exe bamboo/app/tmp]
-INFO  2016/08/15 03:42:58 Loaded module static
-INFO  2016/08/15 03:42:58 Initialized Revel v0.13.1 (2016-06-06) for >= go1.4
-INFO  2016/08/15 03:42:58 Cleaning dir tmp
-INFO  2016/08/15 03:42:58 Cleaning dir routes
-INFO  2016/08/15 03:42:58 Cleaning dir tmp
-INFO  2016/08/15 03:42:58 Cleaning dir routes
-TRACE 2016/08/15 03:42:58 Exec: [C:\Go\bin\go.exe build -i -ldflags -X bamboo/app.APP_VERSION= -tags  -o C:\Go\Workspace\bin\revel.d\bamboo\bamboo.exe bamboo/app/tmp]
-INFO  2016/08/15 03:43:12 Loaded module static
-INFO  2016/08/15 03:43:12 Initialized Revel v0.13.1 (2016-06-06) for >= go1.4
-INFO  2016/08/15 03:43:12 Running bamboo (bamboo) in prod mode
-TRACE 2016/08/15 03:43:12 Base path: C:\Go\Workspace\src\bamboo
-TRACE 2016/08/15 03:43:12 Running in live build mode.
-INFO  2016/08/15 03:43:12 Cleaning dir tmp
-INFO  2016/08/15 03:43:12 Cleaning dir routes
-INFO  2016/08/15 03:43:12 Cleaning dir tmp
-INFO  2016/08/15 03:43:12 Cleaning dir routes
-TRACE 2016/08/15 03:43:12 Exec: [C:\Go\bin\go.exe build -i -ldflags -X bamboo/app.APP_VERSION= -tags  -o C:\Go\Workspace\bin\revel.d\bamboo\bamboo.exe bamboo/app/tmp]
-TRACE 2016/08/15 03:43:13 Exec app: C:\Go\Workspace\bin\revel.d\bamboo\bamboo.exe [C:\Go\Workspace\bin\revel.d\bamboo\bamboo.exe -port=80 -importPath=bamboo -runMode=prod]
-INFO  2016/08/15 03:43:13 Loaded module static
-INFO  2016/08/15 03:43:13 Initialized Revel v0.13.1 (2016-06-06) for >= go1.4
-INFO  2016/08/15 03:43:13 Running revel server
-TRACE 2016/08/15 03:43:13 Registered controller: Admin
-TRACE 2016/08/15 03:43:13 Registered controller: App
-TRACE 2016/08/15 03:43:13 Registered controller: Static
-TRACE 2016/08/15 03:43:13 Importing messages from module: github.com/revel/modules/static
-TRACE 2016/08/15 03:43:13 Successfully loaded messages from file sample.en
-INFO  2016/08/15 03:43:13 Skipping routes for inactive module testrunner
-TRACE 2016/08/15 03:43:13 Refreshing templates from [C:\Go\Workspace\src\bamboo\app\views C:\Go\Workspace\src\github.com\revel\revel/templates]
-TRACE 2016/08/15 03:43:13 adding template:  Admin\ChangePassword.html
-TRACE 2016/08/15 03:43:13 adding template:  Admin\Index.html
-TRACE 2016/08/15 03:43:13 adding template:  Admin\Login.html
-TRACE 2016/08/15 03:43:13 adding template:  Admin\Register.html
-TRACE 2016/08/15 03:43:13 adding template:  App\Index.html
-TRACE 2016/08/15 03:43:13 adding template:  admin.html
-TRACE 2016/08/15 03:43:13 adding template:  debug.html
-TRACE 2016/08/15 03:43:13 adding template:  errors\404.html
-TRACE 2016/08/15 03:43:13 adding template:  errors\500.html
-TRACE 2016/08/15 03:43:13 adding template:  flash.html
-TRACE 2016/08/15 03:43:13 adding template:  footer.html
-TRACE 2016/08/15 03:43:13 adding template:  header.html
-TRACE 2016/08/15 03:43:13 adding template:  errors\403.html
-TRACE 2016/08/15 03:43:13 adding template:  errors\403.json
-TRACE 2016/08/15 03:43:13 adding template:  errors\403.txt
-TRACE 2016/08/15 03:43:13 adding template:  errors\403.xml
-TRACE 2016/08/15 03:43:13 adding template:  errors\404-dev.html
-TRACE 2016/08/15 03:43:13 adding template:  errors\404.html
-TRACE 2016/08/15 03:43:13 adding template:  errors\404.json
-TRACE 2016/08/15 03:43:13 adding template:  errors\404.txt
-TRACE 2016/08/15 03:43:13 adding template:  errors\404.xml
-TRACE 2016/08/15 03:43:13 adding template:  errors\405.html
-TRACE 2016/08/15 03:43:13 adding template:  errors\405.json
-TRACE 2016/08/15 03:43:13 adding template:  errors\405.txt
-TRACE 2016/08/15 03:43:13 adding template:  errors\405.xml
-TRACE 2016/08/15 03:43:13 adding template:  errors\500-dev.html
-TRACE 2016/08/15 03:43:13 adding template:  errors\500.html
-TRACE 2016/08/15 03:43:13 adding template:  errors\500.json
-TRACE 2016/08/15 03:43:13 adding template:  errors\500.txt
-TRACE 2016/08/15 03:43:13 adding template:  errors\500.xml
-TRACE 2016/08/15 03:43:27 Unable to read locale cookie with name 'REVEL_LANG': http: named cookie not present
-TRACE 2016/08/15 03:43:27 Found Accept-Language header value: ko-KR
-TRACE 2016/08/15 03:43:28 Unable to read locale cookie with name 'REVEL_LANG': http: named cookie not present
-TRACE 2016/08/15 03:43:28 Found Accept-Language header value: ko-KR
-TRACE 2016/08/15 03:43:28 Unable to read locale cookie with name 'REVEL_LANG': http: named cookie not present
-TRACE 2016/08/15 03:43:28 Found Accept-Language header value: ko-KR
-TRACE 2016/08/15 03:43:28 Unable to read locale cookie with name 'REVEL_LANG': http: named cookie not present
-TRACE 2016/08/15 03:43:28 Found Accept-Language header value: ko-KR
-TRACE 2016/08/15 03:43:28 Unable to read locale cookie with name 'REVEL_LANG': http: named cookie not present
-TRACE 2016/08/15 03:43:28 Found Accept-Language header value: ko-KR
-TRACE 2016/08/15 03:45:49 Unable to read locale cookie with name 'REVEL_LANG': http: named cookie not present
-TRACE 2016/08/15 03:45:49 Found Accept-Language header value: ko-KR
-TRACE 2016/08/15 03:45:51 Unable to read locale cookie with name 'REVEL_LANG': http: named cookie not present
-TRACE 2016/08/15 03:45:51 Found Accept-Language header value: ko-KR
-TRACE 2016/08/15 03:45:51 Unable to read locale cookie with name 'REVEL_LANG': http: named cookie not present
-TRACE 2016/08/15 03:45:51 Found Accept-Language header value: ko-KR
-TRACE 2016/08/15 03:45:51 Unable to read locale cookie with name 'REVEL_LANG': http: named cookie not present
-TRACE 2016/08/15 03:45:51 Found Accept-Language header value: ko-KR
-TRACE 2016/08/15 03:45:51 Unable to read locale cookie with name 'REVEL_LANG': http: named cookie not present
-TRACE 2016/08/15 03:45:51 Found Accept-Language header value: ko-KR
-TRACE 2016/08/15 03:45:52 Unable to read locale cookie with name 'REVEL_LANG': http: named cookie not present
-TRACE 2016/08/15 03:45:52 Found Accept-Language header value: ko-KR
-TRACE 2016/08/15 03:46:00 Unable to read locale cookie with name 'REVEL_LANG': http: named cookie not present
-TRACE 2016/08/15 03:46:00 Found Accept-Language header value: ko-KR
-TRACE 2016/08/15 03:46:00 Unable to read locale cookie with name 'REVEL_LANG': http: named cookie not present
-TRACE 2016/08/15 03:46:00 Unable to read locale cookie with name 'REVEL_LANG': http: named cookie not present
-TRACE 2016/08/15 03:46:00 Found Accept-Language header value: ko-KR
-TRACE 2016/08/15 03:46:00 Found Accept-Language header value: ko-KR
-TRACE 2016/08/15 03:46:00 Unable to read locale cookie with name 'REVEL_LANG': http: named cookie not present
-TRACE 2016/08/15 03:46:00 Found Accept-Language header value: ko-KR
-TRACE 2016/08/15 03:46:02 Unable to read locale cookie with name 'REVEL_LANG': http: named cookie not present
-TRACE 2016/08/15 03:46:02 Unable to find locale in cookie or header, using empty string
-INFO  2016/08/15 03:46:23 Loaded module static
-INFO  2016/08/15 03:46:23 Initialized Revel v0.13.1 (2016-06-06) for >= go1.4
-INFO  2016/08/15 03:46:23 Cleaning dir tmp
-INFO  2016/08/15 03:46:23 Cleaning dir routes
-INFO  2016/08/15 03:46:23 Cleaning dir tmp
-INFO  2016/08/15 03:46:23 Cleaning dir routes
-TRACE 2016/08/15 03:46:23 Exec: [C:\Go\bin\go.exe build -i -ldflags -X bamboo/app.APP_VERSION= -tags  -o C:\Go\Workspace\bin\revel.d\bamboo\bamboo.exe bamboo/app/tmp]
-INFO  2016/08/15 03:46:26 Loaded module static
-INFO  2016/08/15 03:46:26 Initialized Revel v0.13.1 (2016-06-06) for >= go1.4
-INFO  2016/08/15 03:46:26 Cleaning dir tmp
-INFO  2016/08/15 03:46:26 Cleaning dir routes
-INFO  2016/08/15 03:46:26 Cleaning dir tmp
-INFO  2016/08/15 03:46:26 Cleaning dir routes
-TRACE 2016/08/15 03:46:26 Exec: [C:\Go\bin\go.exe build -i -ldflags -X bamboo/app.APP_VERSION= -tags  -o C:\Go\Workspace\bin\revel.d\bamboo\bamboo.exe bamboo/app/tmp]
+INFO  2016/08/15 04:10:15 Loaded module static
+INFO  2016/08/15 04:10:15 Initialized Revel v0.13.1 (2016-06-06) for >= go1.4
+INFO  2016/08/15 04:10:15 Cleaning dir tmp
+INFO  2016/08/15 04:10:15 Cleaning dir routes
+INFO  2016/08/15 04:10:15 Cleaning dir tmp
+INFO  2016/08/15 04:10:15 Cleaning dir routes
+TRACE 2016/08/15 04:10:15 Exec: [C:\Program Files\Git\cmd\git.exe --git-dir=C:\Go\Workspace\src\bamboo/.git describe --always --dirty]
+TRACE 2016/08/15 04:10:15 Exec: [C:\Go\bin\go.exe build -i -ldflags -X bamboo/app.APP_VERSION= -tags  -o C:\Go\Workspace\bin\revel.d\bamboo\bamboo.exe bamboo/app/tmp]
+INFO  2016/08/15 04:10:18 Loaded module static
+INFO  2016/08/15 04:10:18 Initialized Revel v0.13.1 (2016-06-06) for >= go1.4
+INFO  2016/08/15 04:10:18 Cleaning dir tmp
+INFO  2016/08/15 04:10:18 Cleaning dir routes
+INFO  2016/08/15 04:10:18 Cleaning dir tmp
+INFO  2016/08/15 04:10:18 Cleaning dir routes
+TRACE 2016/08/15 04:10:18 Exec: [C:\Program Files\Git\cmd\git.exe --git-dir=C:\Go\Workspace\src\bamboo/.git describe --always --dirty]
+TRACE 2016/08/15 04:10:18 Exec: [C:\Go\bin\go.exe build -i -ldflags -X bamboo/app.APP_VERSION= -tags  -o C:\Go\Workspace\bin\revel.d\bamboo\bamboo.exe bamboo/app/tmp]
+INFO  2016/08/15 04:10:32 Loaded module static
+INFO  2016/08/15 04:10:32 Initialized Revel v0.13.1 (2016-06-06) for >= go1.4
+INFO  2016/08/15 04:10:32 Cleaning dir tmp
+INFO  2016/08/15 04:10:32 Cleaning dir routes
+INFO  2016/08/15 04:10:32 Cleaning dir tmp
+INFO  2016/08/15 04:10:32 Cleaning dir routes
+TRACE 2016/08/15 04:10:32 Exec: [C:\Program Files\Git\cmd\git.exe --git-dir=C:\Go\Workspace\src\bamboo/.git describe --always --dirty]
+TRACE 2016/08/15 04:10:32 Exec: [C:\Go\bin\go.exe build -i -ldflags -X bamboo/app.APP_VERSION= -tags  -o C:\Go\Workspace\bin\revel.d\bamboo\bamboo.exe bamboo/app/tmp]
+INFO  2016/08/15 04:10:34 Loaded module static
+INFO  2016/08/15 04:10:34 Initialized Revel v0.13.1 (2016-06-06) for >= go1.4
+INFO  2016/08/15 04:10:34 Cleaning dir tmp
+INFO  2016/08/15 04:10:34 Cleaning dir routes
+INFO  2016/08/15 04:10:34 Cleaning dir tmp
+INFO  2016/08/15 04:10:34 Cleaning dir routes
+TRACE 2016/08/15 04:10:34 Exec: [C:\Program Files\Git\cmd\git.exe --git-dir=C:\Go\Workspace\src\bamboo/.git describe --always --dirty]
+TRACE 2016/08/15 04:10:34 Exec: [C:\Go\bin\go.exe build -i -ldflags -X bamboo/app.APP_VERSION= -tags  -o C:\Go\Workspace\bin\revel.d\bamboo\bamboo.exe bamboo/app/tmp]
+INFO  2016/08/15 04:16:02 Loaded module static
+INFO  2016/08/15 04:16:02 Initialized Revel v0.13.1 (2016-06-06) for >= go1.4
+INFO  2016/08/15 04:16:02 Cleaning dir tmp
+INFO  2016/08/15 04:16:02 Cleaning dir routes
+INFO  2016/08/15 04:16:02 Cleaning dir tmp
+INFO  2016/08/15 04:16:02 Cleaning dir routes
+TRACE 2016/08/15 04:16:02 Exec: [C:\Program Files\Git\cmd\git.exe --git-dir=C:\Go\Workspace\src\bamboo/.git describe --always --dirty]
+TRACE 2016/08/15 04:16:02 Exec: [C:\Go\bin\go.exe build -i -ldflags -X bamboo/app.APP_VERSION= -tags  -o C:\Go\Workspace\bin\revel.d\bamboo\bamboo.exe bamboo/app/tmp]
+INFO  2016/08/15 04:16:05 Loaded module static
+INFO  2016/08/15 04:16:05 Initialized Revel v0.13.1 (2016-06-06) for >= go1.4
+INFO  2016/08/15 04:16:05 Cleaning dir tmp
+INFO  2016/08/15 04:16:05 Cleaning dir routes
+INFO  2016/08/15 04:16:05 Cleaning dir tmp
+INFO  2016/08/15 04:16:05 Cleaning dir routes
+TRACE 2016/08/15 04:16:05 Exec: [C:\Program Files\Git\cmd\git.exe --git-dir=C:\Go\Workspace\src\bamboo/.git describe --always --dirty]
+TRACE 2016/08/15 04:16:05 Exec: [C:\Go\bin\go.exe build -i -ldflags -X bamboo/app.APP_VERSION= -tags  -o C:\Go\Workspace\bin\revel.d\bamboo\bamboo.exe bamboo/app/tmp]
+INFO  2016/08/15 04:24:38 Loaded module static
+INFO  2016/08/15 04:24:38 Initialized Revel v0.13.1 (2016-06-06) for >= go1.4
+INFO  2016/08/15 04:24:38 Cleaning dir tmp
+INFO  2016/08/15 04:24:38 Cleaning dir routes
+INFO  2016/08/15 04:24:38 Cleaning dir tmp
+INFO  2016/08/15 04:24:38 Cleaning dir routes
+TRACE 2016/08/15 04:24:38 Exec: [C:\Program Files\Git\cmd\git.exe --git-dir=C:\Go\Workspace\src\bamboo/.git describe --always --dirty]
+TRACE 2016/08/15 04:24:38 Exec: [C:\Go\bin\go.exe build -i -ldflags -X bamboo/app.APP_VERSION= -tags  -o C:\Go\Workspace\bin\revel.d\bamboo\bamboo.exe bamboo/app/tmp]
+INFO  2016/08/15 04:24:41 Loaded module static
+INFO  2016/08/15 04:24:41 Initialized Revel v0.13.1 (2016-06-06) for >= go1.4
+INFO  2016/08/15 04:24:41 Cleaning dir tmp
+INFO  2016/08/15 04:24:41 Cleaning dir routes
+INFO  2016/08/15 04:24:41 Cleaning dir tmp
+INFO  2016/08/15 04:24:41 Cleaning dir routes
+TRACE 2016/08/15 04:24:41 Exec: [C:\Program Files\Git\cmd\git.exe --git-dir=C:\Go\Workspace\src\bamboo/.git describe --always --dirty]
+TRACE 2016/08/15 04:24:41 Exec: [C:\Go\bin\go.exe build -i -ldflags -X bamboo/app.APP_VERSION= -tags  -o C:\Go\Workspace\bin\revel.d\bamboo\bamboo.exe bamboo/app/tmp]
