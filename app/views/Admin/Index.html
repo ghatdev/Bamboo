@@ -8,10 +8,9 @@
     <p class="col-md-8 text-left" style="width:70%">{{.Message}}</p>
     <table border="0" class="text-right" style="width: 30%;">
       <tr>
-        <td><button type="button" class="btn btn-default" data-toggle="modal" data-target="#postModal">게시</button></td>
+        <td><button type="button" class="btn btn-default" data-toggle="modal" data-target="#postModal{{.Snum}}">게시</button></td>
       </tr>
     </table>
-
   </div>
   <div class="panel-footer">
     <table border="0" style="width: 100%;">
@@ -25,7 +24,7 @@
 </div>
 <form action="/Admin/Post" method="POST">
   <input type="hidden" name="snum" value="{{.Snum}}"/>
-  <div class="modal fade" id="postModal" tabindex="-1" role="dialog" aria-labelledby="postModalLabel">
+  <div class="modal fade" id="postModal{{.Snum}}" tabindex="-1" role="dialog" aria-labelledby="postModalLabel">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">

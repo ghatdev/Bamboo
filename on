@@ -62,3 +62,11 @@ INFO  2016/08/15 04:24:41 Cleaning dir tmp
 INFO  2016/08/15 04:24:41 Cleaning dir routes
 TRACE 2016/08/15 04:24:41 Exec: [C:\Program Files\Git\cmd\git.exe --git-dir=C:\Go\Workspace\src\bamboo/.git describe --always --dirty]
 TRACE 2016/08/15 04:24:41 Exec: [C:\Go\bin\go.exe build -i -ldflags -X bamboo/app.APP_VERSION= -tags  -o C:\Go\Workspace\bin\revel.d\bamboo\bamboo.exe bamboo/app/tmp]
+INFO  2016/08/15 16:45:20 Loaded module static
+INFO  2016/08/15 16:45:20 Initialized Revel v0.13.1 (2016-06-06) for >= go1.4
+INFO  2016/08/15 16:45:20 Cleaning dir tmp
+INFO  2016/08/15 16:45:20 Cleaning dir routes
+INFO  2016/08/15 16:45:20 Cleaning dir tmp
+INFO  2016/08/15 16:45:20 Cleaning dir routes
+TRACE 2016/08/15 16:45:20 Exec: [C:\Program Files\Git\cmd\git.exe --git-dir=C:\Go\Workspace\src\bamboo/.git describe --always --dirty]
+TRACE 2016/08/15 16:45:21 Exec: [C:\Go\bin\go.exe build -i -ldflags -X bamboo/app.APP_VERSION= -tags  -o C:\Go\Workspace\bin\revel.d\bamboo\bamboo.exe bamboo/app/tmp]
