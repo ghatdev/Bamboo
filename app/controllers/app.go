@@ -75,8 +75,11 @@ func (c App) Post(answer string, message string, qnum int, snum string) revel.Re
 
 	//session.SetMode(mgo.Monotonic, true) // 모드 설정.
 
-	s := strings.Split(c.Request.RemoteAddr, ":")
-	ip := s[0]
+	// ---------------------- Client IP 가져오는 부분. 추후에 IP 차단기능을 위함. ----------------------------
+	//s := strings.Split(c.Request.RemoteAddr, ":")
+	//ip:=s[0]
+	// ---------------------- 아래는 CloudFlare 사용할 경우. 아니라면 위에 주석처리된 부분 사용 --------------------------
+	ip := c.Request.Header.Get("CF-Connecting-IP")
 
 	collection := session.DB("bamboo").C("content")                                    // MongoDB에서 DB와 collection 설정
 	err = collection.Insert(&Content{message, time.Now().String(), "false", snum, ip}) // 선택된 DB, collection 에 전달받은 message와 저장되는 시간 구조화하여 MongoDB에 저장.

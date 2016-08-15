@@ -48,23 +48,51 @@ func (c Admin) Index() revel.Result {
 	}
 	defer session.Close() // panic 이 호출된 경우 세션을 Close 하고 즉시 리턴
 
-	collection := session.DB("bamboo").C("content")
+	collection := session.DB("bamboo").C("content") // MongoDB의 bamboo 데이터베이스에서 content 컬렉션 선택
 
-	var contents []Content
-	err = collection.Find(bson.M{"posted": "false"}).All(&contents)
-	if err != nil {
-		c.Flash.Error("게시되지 않은 내용이 없습니다")
+	var contents []Content                                          // 가져올 content 형식. 여러개의 content임으로 배열로 정의
+	err = collection.Find(bson.M{"posted": "false"}).All(&contents) // {"posted":"false"}인, 즉 게시되지 않은 모든 게시물 정보 가져와서 contents에 배열로 저장
+	if err != nil {                                                 // 못찾았다면
+		c.Flash.Error("게시되지 않은 내용이 없습니다") //게시되지 않은 내용 없음. 열일하시네요
 	}
 
-	session.Close()
+	session.Close() // DB 쓰고 나면 꼭 session 닫기
 
-	return c.Render(contents)
+	return c.Render(contents) // contens 값 View 로 전달한 후 View 렌더링
+}
+
+// Posted func
+// 게시된 게시물들 List 페이지
+func (c Admin) Posted() revel.Result {
+	if c.Session["id"] == "" { // 로그인 되어있는지 체크. 안되있다면 로그인 페이지로 이동
+		c.Flash.Error("로그인이 필요합니다")
+		return c.Redirect(Admin.Login)
+	}
+
+	session, err := mgo.Dial("localhost") // DB 연결. 여기서는 localhost의 MongoDB에 연결. 오류 발생하면 err에 오류값이 저장된다.
+	if err != nil {                       // 오류 발생한 경우
+		c.Flash.Error("오류로 인해 내용을 불러올 수 없습니다. 오류가 지속될 경우 관리자에게 문의 바랍니다.") // 에러 메세지
+		return c.Redirect(Admin.Login)                                    // 내용 작성하던 페이지로 Redirect
+	}
+	defer session.Close() // panic 이 호출된 경우 세션을 Close 하고 즉시 리턴
+
+	collection := session.DB("bamboo").C("content") // MongoDB의 bamboo 데이터베이스에서 content 컬렉션 선택
+
+	var contents []Content                                         // 가져올 content 형식. 여러개의 content임으로 배열로 정의
+	err = collection.Find(bson.M{"posted": "true"}).All(&contents) // {"posted":"true"}인, 즉 게시된 모든 게시물 정보 가져와서 contents에 배열로 저장
+	if err != nil {                                                // 못찾았다면
+		c.Flash.Error("게시된 내용이 없습니다") //게시된 내용 없음. 열일하세요
+	}
+
+	session.Close() // DB 쓰고 나면 꼭 session 닫기
+
+	return c.Render(contents) // contens 값 View 로 전달한 후 View 렌더링
 }
 
 // Post func
 // 게시 처리 MethodName
 func (c Admin) Post(content string, snum string) revel.Result {
-	if c.Session["id"] == "" {
+	if c.Session["id"] == "" { // 로그인 되어있는지 체크. 안되있다면 로그인 페이지로 이동
 		c.Flash.Error("로그인이 필요합니다")
 		return c.Redirect(Admin.Login)
 	}
@@ -76,30 +104,30 @@ func (c Admin) Post(content string, snum string) revel.Result {
 	}
 	defer session.Close() // panic 이 호출된 경우 세션을 Close 하고 즉시 리턴
 
-	collection := session.DB("bamboo").C("content")
+	collection := session.DB("bamboo").C("content") // MongoDB의 bamboo 데이터베이스에서 content 컬렉션 선택
 
-	result := Content{}
-	err = collection.Find(bson.M{"snum": snum}).One(&result)
-	if err != nil {
-		c.Flash.Error("올바르지 않은 접근입니다")
-		return c.Redirect(Admin.Index)
+	result := Content{}                                      // 가져올 content 형식. 한개임으로 Content 형식을 가진 하나의 변수
+	err = collection.Find(bson.M{"snum": snum}).One(&result) // snum이 전달된 snum 이랑 같은 게시물 검색.
+	if err != nil {                                          // snum인 게시물 없다면
+		c.Flash.Error("올바르지 않은 접근입니다") // 말도 안되는거지 이게
+		return c.Redirect(Admin.Index) // 오류 출력하고 Index로 복귀
 	}
 
-	err = collection.Update(bson.M{"snum": snum}, bson.M{"message": content, "time": result.Time, "posted": "true", "snum": snum, "ipaddr": result.Ipaddr})
-	if err != nil {
-		c.Flash.Error("올바르지 않은 접근입니다")
-		return c.Redirect(Admin.Index)
+	err = collection.Update(bson.M{"snum": snum}, bson.M{"message": content, "time": result.Time, "posted": "true", "snum": snum, "ipaddr": result.Ipaddr}) // 찾은 내용에서 posted 값만 ture로 바꾸고 나머지는 그대로
+	if err != nil {                                                                                                                                         //실패했다면
+		c.Flash.Error("올바르지 않은 접근입니다") // 이것도 말도안되는거지.
+		return c.Redirect(Admin.Index) // 오류 출력하고 Index 로 복귀
 	}
 
-	session.Close()
+	session.Close() // DB 쓰고나선 꼭 연결 닫자.
 
-	return c.Redirect(Admin.Index)
+	return c.Redirect(Admin.Index) // 앞에서 아무문제 없었다면 아무 메세지 없이  Index로 복귀
 }
 
 // Login func
 // 관리자 로그인 페이지
 func (c Admin) Login() revel.Result {
-	return c.Render()
+	return c.Render() // 단순히 페이지 렌더링
 }
 
 // LoginInternal func
