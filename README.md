@@ -1,4 +1,4 @@
-# OpenBamboo
+# OpenBamboo by ghatdev
 
 ## 사용된 오픈소스 라이브러리
 
@@ -17,8 +17,6 @@
 
    Run with <tt>--help</tt> for options.
 
-### Go to http://localhost:80/ and you'll see:
-
-"It works"
+### Go to http://localhost:80/ and you'll see Bamboo Page
 
 
