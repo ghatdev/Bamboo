@@ -14,14 +14,17 @@ Open source Bamboo project
     
     1. golang
     2. revel
+    3. MongoDB
 
 ### Start the web server for development:
     
-    1. Download zipped source file
-    2. unzip the source
-    3. in any shell, type: revel run /*unzipped bamboo path*/
-    4. goto http://your-ip 
-    5. you can see bamboo page
+    1. Download & Install MongoDB.
+    2. Create "bamboo" DB
+    3. Download zipped source file
+    4. unzip the source
+    5. in any shell, type: revel run /*unzipped bamboo path*/
+    6. goto http://your-ip 
+    7. you can see bamboo page
     
    Run with <tt>--help</tt> for options.
 
