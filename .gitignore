@@ -1,3 +1,5 @@
 test-results/
 tmp/
 routes/
+*.log
+on
