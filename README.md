@@ -2,9 +2,9 @@
 
 ## 사용된 오픈소스
 
-revel: A high-productivity web framework for the [Go language](http://www.golang.org/)...
-bootstrap...
-jquery
+revel: A high-productivity web framework for the [Go language](http://www.golang.org/)  
+bootstrap  
+jquery  
 
 ## Getting Started
 
