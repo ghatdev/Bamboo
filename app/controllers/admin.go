@@ -340,3 +340,78 @@ func (c Admin) AddUser(email string, psw string, role string) revel.Result {
 	c.Flash.Success("계정이 정상적으로 등록되었습니다.") // 성공했다는 메세지
 	return c.Redirect(Admin.Register)
 }
+
+// ManageAccounts func
+// 계정 관리 func
+func (c Admin) ManageAccounts() revel.Result {
+	if c.Session["id"] == "" {
+		c.Flash.Error("로그인이 필요합니다")
+		return c.Redirect(Admin.Login)
+	}
+
+	if c.Session["role"] != "Master" {
+		c.Flash.Error("권한이 부족합니다")
+		return c.Redirect(Admin.Index)
+	}
+
+	session, err := mgo.Dial("localhost") // DB 연결. 여기서는 localhost의 MongoDB에 연결. 오류 발생하면 err에 오류값이 저장된다.
+	if err != nil {                       // 오류 발생한 경우
+		c.Flash.Error("DB에 접속할 수 없습니다. 해당 오류가 지속될 경우 관리자에게 문의 바랍니다.") // 에러 메세지
+		c.FlashParams()                                               // 기존에 작성했던 내용 저장
+		return c.Redirect(Admin.Index)                                // 내용 작성하던 페이지로 Redirect
+	}
+	defer session.Close() // panic 이 호출된 경우 세션을 Close 하고 즉시 리턴
+
+	var results []Account
+	collection := session.DB("bamboo").C("accounts")             // MongoDB에서 DB와 collection 설정
+	err = collection.Find(bson.M{"role": "Admin"}).All(&results) // 선택된 DB, collection 에 전달받은 message와 저장되는 시간 구조화하여 MongoDB에 저장.
+	// 오류가 발생할경우 err에 에러정보가 입력되며 에러가 없을경우 err은 nil(null)이 된다.
+
+	if err != nil { // 오류 발생한 경우
+		c.Flash.Error("등록된 계정을 찾을 수 없습니다.") // 오류 메세지
+		session.Close()
+		return c.Redirect(Admin.ManageAccounts) // 내용 작성하던 페이지로 Redirect
+	}
+
+	session.Close() // DB와 연결된 세션을 닫고
+
+	return c.Render(results)
+}
+
+// DeleteAccount func
+// 계정 삭제 func
+// Post only
+func (c Admin) DeleteAccount(email string) revel.Result {
+	if c.Session["id"] == "" {
+		c.Flash.Error("로그인이 필요합니다")
+		return c.Redirect(Admin.Login)
+	}
+
+	if c.Session["role"] != "Master" {
+		c.Flash.Error("권한이 부족합니다")
+		return c.Redirect(Admin.Index)
+	}
+
+	session, err := mgo.Dial("localhost") // DB 연결. 여기서는 localhost의 MongoDB에 연결. 오류 발생하면 err에 오류값이 저장된다.
+	if err != nil {                       // 오류 발생한 경우
+		c.Flash.Error("DB에 접속할 수 없습니다. 해당 오류가 지속될 경우 관리자에게 문의 바랍니다.") // 에러 메세지
+		c.FlashParams()                                               // 기존에 작성했던 내용 저장
+		return c.Redirect(Admin.Index)                                // 내용 작성하던 페이지로 Redirect
+	}
+	defer session.Close() // panic 이 호출된 경우 세션을 Close 하고 즉시 리턴
+
+	collection := session.DB("bamboo").C("accounts") // MongoDB에서 DB와 collection 설정
+	err = collection.Remove(bson.M{"email": email})
+
+	// 오류가 발생할경우 err에 에러정보가 입력되며 에러가 없을경우 err은 nil(null)이 된다.
+
+	if err != nil { // 오류 발생한 경우
+		c.Flash.Error("계정을 삭제하는 중 오류가 발생하였습니다.") // 오류 메세지
+		session.Close()
+		return c.Redirect(Admin.ManageAccounts) // 내용 작성하던 페이지로 Redirect
+	}
+
+	session.Close() // DB와 연결된 세션을 닫고
+	c.Flash.Success("계정을 성공적으로 삭제하였습니다")
+	return c.Redirect(Admin.ManageAccounts)
+}
