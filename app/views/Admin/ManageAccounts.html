@@ -2,19 +2,20 @@
 {{ template "flash.html" .}}
 
 {{if .results}}
+{{range .results}}
 <div class="panel panel-primary" style="margin-top: 7px; margin-bottom: 7px;">
   <div class="panel-body">
-    <table border="0" class="text-right" style="width: 30%;">
+    <table border="0" class="text-right" style="width: 100%;">
       <tr>
         <td><p class="col-md-8 text-left" style="width:70%">{{.Email}}</p></td>
-        <td><button type="button" class="btn btn-default" data-toggle="modal" data-target="#postModal{{.Email}}">계정 삭제</button></td>
+        <td><button type="button" class="btn btn-default" data-toggle="modal" data-target="#postModal{{.ID}}">계정 삭제</button></td>
       </tr>
     </table>
   </div>
 </div>
 <form action="/Admin/DeleteAccount" method="POST">
   <input type="hidden" name="email" value="{{.Email}}"/>
-  <div class="modal fade" id="postModal{{.Email}}" tabindex="-1" role="dialog" aria-labelledby="postModalLabel">
+  <div class="modal fade" id="postModal{{.ID}}" tabindex="-1" role="dialog" aria-labelledby="postModalLabel">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">

@@ -20,6 +20,7 @@ type Admin struct {
 // 관리자 계정 구조
 type Account struct {
 	Email    string
+	ID       string
 	Password string
 	Role     string
 }
@@ -324,8 +325,8 @@ func (c Admin) AddUser(email string, psw string, role string) revel.Result {
 		role = "Admin"
 	}
 
-	collection := session.DB("bamboo").C("accounts")     // MongoDB에서 DB와 collection 설정
-	err = collection.Insert(&Account{email, hpsw, role}) // 선택된 DB, collection 에 전달받은 message와 저장되는 시간 구조화하여 MongoDB에 저장.
+	collection := session.DB("bamboo").C("accounts")         // MongoDB에서 DB와 collection 설정
+	err = collection.Insert(&Account{email, id, hpsw, role}) // 선택된 DB, collection 에 전달받은 message와 저장되는 시간 구조화하여 MongoDB에 저장.
 	// 오류가 발생할경우 err에 에러정보가 입력되며 에러가 없을경우 err은 nil(null)이 된다.
 
 	if err != nil { // 오류 발생한 경우
