@@ -162,7 +162,7 @@ func (c Admin) LoginInternal(inputEmail string, inputPassword string) revel.Resu
 
 	psw := base64.StdEncoding.EncodeToString(bs)
 
-	if strings.Compare(result.Password, psw) != 0 {
+	if result.Password != psw {
 		c.Flash.Error("비밀번호가 일치하지 않습니다")
 		return c.Redirect(Admin.Login)
 	}
@@ -213,7 +213,7 @@ func (c Admin) UpdatePassword(oldpsw string, newpsw string, newpswConfirm string
 		return c.Redirect(Admin.ChangePassword)
 	}
 
-	if strings.Compare(newpsw, newpswConfirm) != 0 {
+	if newpsw != newpswConfirm {
 		c.Flash.Error("패스워드가 일치하지 않습니다")
 		return c.Redirect(Admin.ChangePassword)
 	}
@@ -247,7 +247,7 @@ func (c Admin) UpdatePassword(oldpsw string, newpsw string, newpswConfirm string
 
 	psw := base64.StdEncoding.EncodeToString(bs)
 
-	if strings.Compare(result.Password, psw) != 0 {
+	if result.Password != psw {
 		c.Flash.Error("현재 패스워드가 일치하지 않습니다")
 		return c.Redirect(Admin.ChangePassword)
 	}
