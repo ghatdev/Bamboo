@@ -17,7 +17,7 @@ type App struct {
 // Index func
 // 제보 패이지. 여기가 메인.
 func (c App) Index() revel.Result {
-	question := [3]string{
+	question := [5]string{
 		"2016년 학생회장이 선출된 이후 이 페이지를 개발한 누구는 공식적으로 이 별명을 얻게되었다. 이 별명은?(3글자)",
 		"학교 내부 인트라넷 큰사넷의 내부 접속 주소 마지막 . 뒤의 숫자는? (***.***.***.여기)",
 		"영어선생님 중 노래도 잘하시고 드럼도 잘치시는 선생님이 있다. 이 선생님의 성함은?",
@@ -50,7 +50,7 @@ func (c App) Post(answer string, message string, qnum int, snum string) revel.Re
 		return c.Redirect(App.Index)
 	}
 
-	qanswer := [3]string{"불효자", "32", "손재식", "방울토마토", "EP"} //재학생 질문 확인 답. 질문번호와 답 번호가 같다
+	qanswer := [5]string{"불효자", "32", "손재식", "방울토마토", "EP"} //재학생 질문 확인 답. 질문번호와 답 번호가 같다
 
 	if !strings.Contains(answer, qanswer[qnum]) { // 전달받은 질문 번호의 답을 포함하지 않을경우
 		c.Flash.Error("재학생 확인 질문에 대한 답이 잘못되었습니다.") // 오류 메세지
