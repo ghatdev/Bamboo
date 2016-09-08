@@ -1,5 +1,5 @@
 # Open Bamboo for 대나무숲
-[![Build Status](https://travis-ci.org/ghatdev/Bamboo.svg?branch=master)](https://travis-ci.org/ghatdev/Bamboo.svg?branch=master)
+[![Build Status](https://travis-ci.org/ghatdev/Bamboo.svg?branch=master)](https://travis-ci.org/ghatdev/Bamboo)
 
 ## 사용된 오픈소스
 
