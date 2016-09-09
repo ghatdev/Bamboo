@@ -67,8 +67,8 @@ func (c App) Post(answer string, message string, qnum int, snum string) revel.Re
 		Ipaddr  string
 	} // 저장할 데이터 구조
 
-	session, err := mgo.Dial("localhost") // DB 연결. 여기서는 localhost의 MongoDB에 연결. 오류 발생하면 err에 오류값이 저장된다.
-	if err != nil {                       // 오류 발생한 경우
+	session, err := mgo.Dial(dbaddress) // DB 연결. 여기서는 localhost의 MongoDB에 연결. 오류 발생하면 err에 오류값이 저장된다.
+	if err != nil {                     // 오류 발생한 경우
 		c.Flash.Error("내용 저장에 실패하였습니다. 오류가 지속될 경우 관리자에게 문의 바랍니다.") // 에러 메세지
 		c.FlashParams()                                            // 기존에 작성했던 내용 저장
 		return c.Redirect(App.Index)                               // 내용 작성하던 페이지로 Redirect

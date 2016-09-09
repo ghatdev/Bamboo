@@ -35,6 +35,10 @@ type Content struct {
 	Ipaddr  string
 }
 
+const (
+	dbaddress = "bamboo:xwsph7209#@ds044679.mlab.com:44679/cnsabamboo"
+)
+
 // Index func
 // 관리자 페이지
 func (c Admin) Index() revel.Result {
@@ -42,8 +46,8 @@ func (c Admin) Index() revel.Result {
 		return c.Redirect(Admin.Login)
 	}
 
-	session, err := mgo.Dial("localhost") // DB 연결. 여기서는 localhost의 MongoDB에 연결. 오류 발생하면 err에 오류값이 저장된다.
-	if err != nil {                       // 오류 발생한 경우
+	session, err := mgo.Dial(dbaddress) // DB 연결. 여기서는 localhost의 MongoDB에 연결. 오류 발생하면 err에 오류값이 저장된다.
+	if err != nil {                     // 오류 발생한 경우
 		c.Flash.Error("오류로 인해 내용을 불러올 수 없습니다. 오류가 지속될 경우 관리자에게 문의 바랍니다.") // 에러 메세지
 		return c.Redirect(Admin.Login)                                    // 내용 작성하던 페이지로 Redirect
 	}
@@ -70,8 +74,8 @@ func (c Admin) Posted() revel.Result {
 		return c.Redirect(Admin.Login)
 	}
 
-	session, err := mgo.Dial("localhost") // DB 연결. 여기서는 localhost의 MongoDB에 연결. 오류 발생하면 err에 오류값이 저장된다.
-	if err != nil {                       // 오류 발생한 경우
+	session, err := mgo.Dial(dbaddress) // DB 연결. 여기서는 localhost의 MongoDB에 연결. 오류 발생하면 err에 오류값이 저장된다.
+	if err != nil {                     // 오류 발생한 경우
 		c.Flash.Error("오류로 인해 내용을 불러올 수 없습니다. 오류가 지속될 경우 관리자에게 문의 바랍니다.") // 에러 메세지
 		return c.Redirect(Admin.Login)                                    // 내용 작성하던 페이지로 Redirect
 	}
@@ -98,8 +102,8 @@ func (c Admin) Post(content string, snum string) revel.Result {
 		return c.Redirect(Admin.Login)
 	}
 
-	session, err := mgo.Dial("localhost") // DB 연결. 여기서는 localhost의 MongoDB에 연결. 오류 발생하면 err에 오류값이 저장된다.
-	if err != nil {                       // 오류 발생한 경우
+	session, err := mgo.Dial(dbaddress) // DB 연결. 여기서는 localhost의 MongoDB에 연결. 오류 발생하면 err에 오류값이 저장된다.
+	if err != nil {                     // 오류 발생한 경우
 		c.Flash.Error("오류로 인해 내용을 게시할 수 없습니다. 오류가 지속될 경우 관리자에게 문의 바랍니다.") // 에러 메세지
 		return c.Redirect(Admin.Index)                                    // 내용 작성하던 페이지로 Redirect
 	}
@@ -135,8 +139,8 @@ func (c Admin) Login() revel.Result {
 // 관리자 로컬계정 로그인
 // POST 전용 func
 func (c Admin) LoginInternal(inputEmail string, inputPassword string) revel.Result {
-	session, err := mgo.Dial("localhost") // DB 연결. 여기서는 localhost의 MongoDB에 연결. 오류 발생하면 err에 오류값이 저장된다.
-	if err != nil {                       // 오류 발생한 경우
+	session, err := mgo.Dial(dbaddress) // DB 연결. 여기서는 localhost의 MongoDB에 연결. 오류 발생하면 err에 오류값이 저장된다.
+	if err != nil {                     // 오류 발생한 경우
 		c.Flash.Error("오류로 인해 로그인에 실패하였습니다. 오류가 지속될 경우 관리자에게 문의 바랍니다.") // 에러 메세지
 		return c.Redirect(Admin.Login)                                  // 내용 작성하던 페이지로 Redirect
 	}
@@ -220,8 +224,8 @@ func (c Admin) UpdatePassword(oldpsw string, newpsw string, newpswConfirm string
 
 	email := c.Session["id"] // email 변수에 로그인된 사용자의 email 주소 저장
 
-	session, err := mgo.Dial("localhost") // DB 연결. 여기서는 localhost의 MongoDB에 연결. 오류 발생하면 err에 오류값이 저장된다.
-	if err != nil {                       // 오류 발생한 경우
+	session, err := mgo.Dial(dbaddress) // DB 연결. 여기서는 localhost의 MongoDB에 연결. 오류 발생하면 err에 오류값이 저장된다.
+	if err != nil {                     // 오류 발생한 경우
 		c.Flash.Error("내용 저장에 실패하였습니다. 오류가 지속될 경우 관리자에게 문의 바랍니다.") // 에러 메세지
 		c.FlashParams()                                            // 기존에 작성했던 내용 저장
 		c.Redirect(App.Index)                                      // 내용 작성하던 페이지로 Redirect
@@ -302,8 +306,8 @@ func (c Admin) AddUser(email string, psw string, role string) revel.Result {
 		return c.Redirect(Admin.Index)
 	}
 
-	session, err := mgo.Dial("localhost") // DB 연결. 여기서는 localhost의 MongoDB에 연결. 오류 발생하면 err에 오류값이 저장된다.
-	if err != nil {                       // 오류 발생한 경우
+	session, err := mgo.Dial(dbaddress) // DB 연결. 여기서는 localhost의 MongoDB에 연결. 오류 발생하면 err에 오류값이 저장된다.
+	if err != nil {                     // 오류 발생한 경우
 		c.Flash.Error("계정 등록에 실패하였습니다. 오류가 지속될 경우 관리자에게 문의 바랍니다.") // 에러 메세지
 		c.FlashParams()                                            // 기존에 작성했던 내용 저장
 		return c.Redirect(Admin.Register)                          // 내용 작성하던 페이지로 Redirect
@@ -355,8 +359,8 @@ func (c Admin) ManageAccounts() revel.Result {
 		return c.Redirect(Admin.Index)
 	}
 
-	session, err := mgo.Dial("localhost") // DB 연결. 여기서는 localhost의 MongoDB에 연결. 오류 발생하면 err에 오류값이 저장된다.
-	if err != nil {                       // 오류 발생한 경우
+	session, err := mgo.Dial(dbaddress) // DB 연결. 여기서는 localhost의 MongoDB에 연결. 오류 발생하면 err에 오류값이 저장된다.
+	if err != nil {                     // 오류 발생한 경우
 		c.Flash.Error("DB에 접속할 수 없습니다. 해당 오류가 지속될 경우 관리자에게 문의 바랍니다.") // 에러 메세지
 		c.FlashParams()                                               // 기존에 작성했던 내용 저장
 		return c.Redirect(Admin.Index)                                // 내용 작성하던 페이지로 Redirect
@@ -393,8 +397,8 @@ func (c Admin) DeleteAccount(email string) revel.Result {
 		return c.Redirect(Admin.Index)
 	}
 
-	session, err := mgo.Dial("localhost") // DB 연결. 여기서는 localhost의 MongoDB에 연결. 오류 발생하면 err에 오류값이 저장된다.
-	if err != nil {                       // 오류 발생한 경우
+	session, err := mgo.Dial(dbaddress) // DB 연결. 여기서는 localhost의 MongoDB에 연결. 오류 발생하면 err에 오류값이 저장된다.
+	if err != nil {                     // 오류 발생한 경우
 		c.Flash.Error("DB에 접속할 수 없습니다. 해당 오류가 지속될 경우 관리자에게 문의 바랍니다.") // 에러 메세지
 		c.FlashParams()                                               // 기존에 작성했던 내용 저장
 		return c.Redirect(Admin.Index)                                // 내용 작성하던 페이지로 Redirect
