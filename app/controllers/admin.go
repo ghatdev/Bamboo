@@ -7,7 +7,6 @@ import (
 	"encoding/base64"
 
 	"github.com/revel/revel"
-	"gopkg.in/mgo.v2"
 	"gopkg.in/mgo.v2/bson"
 )
 
@@ -218,7 +217,7 @@ func (c Admin) UpdatePassword(oldpsw string, newpsw string, newpswConfirm string
 	}
 
 	if newpsw != newpswConfirm {
-		c.Flash.Error("패스워드가 일치하지 않습니다")
+		c.Flash.Error("패스워드가 일치하지 않습니다!")
 		return c.Redirect(Admin.ChangePassword)
 	}
 
