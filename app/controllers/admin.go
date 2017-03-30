@@ -35,7 +35,7 @@ type Content struct {
 }
 
 const (
-	dbaddress = "bamboo:xwsph7209#@ds044679.mlab.com:44679/cnsabamboo"
+	dbaddress = "localhost"
 )
 
 // Index func
