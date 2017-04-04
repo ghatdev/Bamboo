@@ -147,6 +147,11 @@ func (c Admin) LoginInternal(inputEmail string, inputPassword string) revel.Resu
 
 	//session.SetMode(mgo.Monotonic, true) // 모드 설정.
 
+	if inputEmail.len() < 4 || inputPassword.len() < 4 {
+		c.Flash.Error("아이디와 비밀번호가 너무 짧습니다.")
+		return c.Redirect(App.Login)
+	}
+
 	collection := session.DB("bamboo").C("accounts")
 
 	result := Account{}
@@ -217,7 +222,7 @@ func (c Admin) UpdatePassword(oldpsw string, newpsw string, newpswConfirm string
 	}
 
 	if newpsw != newpswConfirm {
-		c.Flash.Error("패스워드가 일치하지 않습니다!")
+		c.Flash.Error("패스워드가 일치하지 않습니다")
 		return c.Redirect(Admin.ChangePassword)
 	}
 
