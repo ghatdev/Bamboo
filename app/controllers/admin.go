@@ -7,6 +7,7 @@ import (
 	"encoding/base64"
 
 	"github.com/revel/revel"
+	"gopkg.in/mgo.v2"
 	"gopkg.in/mgo.v2/bson"
 )
 
@@ -147,9 +148,9 @@ func (c Admin) LoginInternal(inputEmail string, inputPassword string) revel.Resu
 
 	//session.SetMode(mgo.Monotonic, true) // 모드 설정.
 
-	if inputEmail.len() < 4 || inputPassword.len() < 4 {
+	if len(inputEmail) < 4 || len(inputPassword) < 4 {
 		c.Flash.Error("아이디와 비밀번호가 너무 짧습니다.")
-		return c.Redirect(App.Login)
+		return c.Redirect(Admin.Login)
 	}
 
 	collection := session.DB("bamboo").C("accounts")

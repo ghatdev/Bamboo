@@ -54,7 +54,7 @@
 
 {{template "flash.html" .}}
 
-<form action="/App/Post" method="post">
+<form action="/App/Post" method="post" id="post-form">
   <label for="question">재학생 확인 질문 (모르는 질문일 경우 새로고침을 하면 다른 질문으로 바뀝니다.)</label>
 
     <p>{{.q}}</p>
@@ -74,7 +74,7 @@
     <input type="hidden" id="snum" name="snum" value="{{.snum}}"/>
     <input type="hidden" id="qnum" name="qnum" value="{{.num}}" />
     <br />
-    <button class="btn btn-default" type="submit" style="margin-top: 15px"><span class="glyphicon-pencil"></span>작성</button>
+    <button class="btn btn-default g-recaptcha" type="submit" data-sitekey="6Ld7ZCAUAAAAAPutaZ8Zfq_W215FJX2LXs4WfiAV" data-callback="onSubmit" style="margin-top: 15px"><span class="glyphicon-pencil"></span>작성</button>
 </form>
 
 {{template "footer.html" .}}

@@ -7,11 +7,23 @@ import (
 
 	"github.com/revel/revel"
 	"gopkg.in/mgo.v2"
+	"net/http"
+	"encoding/json"
+	"io/ioutil"
+	"net/url"
+	"log"
 )
 
 // App Controller
 type App struct {
 	*revel.Controller
+}
+
+type CaptchResponse struct {
+	Success      bool     `json:"success"`
+	Timestamp    string   `json:"challenge_ts"`
+	Hostname     string   `json:"hostname"`
+	Error_codes  []string `json:"error-codes"`
 }
 
 // Index func
@@ -42,6 +54,30 @@ func (c App) Index() revel.Result {
 // - message: 내용
 // - qnum: 재학생 확인질문 번호
 func (c App) Post(answer string, message string, qnum int, snum string) revel.Result {
+	captcha := c.Request.FormValue("g-recaptcha-response")
+
+	payload := url.Values{
+		"secret": {"6Ld7ZCAUAAAAAOVTdtK3xd0-9LgBrudwcBlD4Zge"},
+		"response": {captcha},
+	}
+
+	response,err := http.PostForm("https://www.google.com/recaptcha/api/siteverify",payload)
+	if err !=nil {
+		c.Flash.Error("클라이언트 검증에 실패하였습니다.2")
+		return c.Redirect(App.Index)
+	}
+
+	resBody,_ := ioutil.ReadAll(response.Body)
+
+	res := CaptchResponse{}
+
+	json.Unmarshal([]byte(resBody), &res)
+
+	if !res.Success {
+		c.Flash.Error("클라이언트 검증에 실패하였습니다.3")
+		return c.Redirect(App.Index)
+	}
+
 	c.Validation.MinSize(message, 10).Message("내용이 너무 짧습니다.") // 내용 10자 미만 체크
 
 	if c.Validation.HasErrors() { //내용 길이가 10자 미만이면 오류발생
@@ -78,10 +114,34 @@ func (c App) Post(answer string, message string, qnum int, snum string) revel.Re
 	//session.SetMode(mgo.Monotonic, true) // 모드 설정.
 
 	// ---------------------- Client IP 가져오는 부분. 추후에 IP 차단기능을 위함. ----------------------------
-	//s := strings.Split(c.Request.RemoteAddr, ":")
-	//ip:=s[0]
+	s := strings.Split(c.Request.RemoteAddr, ":")
+	ip:=s[0]
 	// ---------------------- 아래는 CloudFlare 사용할 경우. 아니라면 위에 주석처리된 부분 사용 --------------------------
-	ip := c.Request.Header.Get("CF-Connecting-IP")
+	if len(ip) < 4 {
+		ip = c.Request.Header.Get("CF-Connecting-IP")
+		log.Fatal(ip)
+	}
+
+	if len(ip) < 4 {
+		return c.Redirect(App.Index)
+		ip = c.Request.Header.Get("X-Forwarded-For")
+		log.Fatal(ip)
+	}
+
+	if len(ip) < 4 {
+		ip = c.Request.Header.Get("Proxy-Client-IP")
+		log.Fatal(ip)
+	}
+
+	if len(ip) < 4 {
+		ip = c.Request.Header.Get("WL-Proxy-Client-IP")
+		log.Fatal(ip)
+	}
+
+	if len(ip) < 4 {
+		ip = c.Request.Header.Get("HTTP_CLIENT_IP")
+		log.Fatal(ip)
+	}
 
 	collection := session.DB("bamboo").C("content")                                    // MongoDB에서 DB와 collection 설정
 	err = collection.Insert(&Content{message, time.Now().String(), "false", snum, ip}) // 선택된 DB, collection 에 전달받은 message와 저장되는 시간 구조화하여 MongoDB에 저장.
