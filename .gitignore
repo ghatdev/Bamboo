@@ -1,6 +1,9 @@
 test-results/
 tmp/
-routes/
 on
 *.log
 on
+.idea/Bamboo.iml
+.idea/libraries/GOPATH__Bamboo_.xml
+.idea/modules.xml
+.idea/workspace.xml
